@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/javascript/login-page.js"></script>
+    <script src="/javascript/register-page.js" defer></script>
     <link rel=stylesheet href="/styles/register-page.css" >
     <title>Document</title>
     
@@ -18,17 +18,17 @@
 
         Cree una cuenta para acceder a Q-Bussines
         
-        <input placeholder="username" type="text">
-        <input placeholder="password" type="text">
-        <input placeholder="repeat your password" type="text">
+        <input id="js-username-input" placeholder="username" type="text">
+        <input id="js-password-input" placeholder="password" type="text">
+        <input id="js-password-repeat-input" placeholder="repeat your password" type="text">
 
         <div class="registration-buttons">
 
-            <button>Registrarme</button>
+            <button id="js-registration-button">Registrarme</button>
 
             <p>Ya tiene una cuenta?</p>
             
-            <button>Iniciar sesión</button>
+            <button id="js-redirect-to-login-button">Iniciar sesión</button>
 
         </div>
 
