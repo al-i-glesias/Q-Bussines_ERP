@@ -1,6 +1,7 @@
 const username = document.querySelector("#js-username-input")
 const password = document.querySelector("#js-password-input")
 const login_button = document.querySelector("#js-login-button")
+const redirect_button = document.querySelector("#js-redirect-to-registration")
 
 login_button.addEventListener("click", async () => {
 
@@ -31,5 +32,11 @@ login_button.addEventListener("click", async () => {
 
         const data = await response.json()
         console.log("login exitoso", data)
+
+        window.location.href = "../html/index.html"
     } catch (err) {console.log (`Error al iniciar sesion: ${err.message}`)}
+})
+
+redirect_button.addEventListener('click', () => {
+    window.open("../html/register-page.html", "_blank")
 })
