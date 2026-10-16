@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    <script src = "/javascript/index.js" defer></script>
+    <title>Gestión de Negocio</title>
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <label for="menubtn">
+                <img src="/icons/bars-solid.png" id="menu-icon" alt="Menú">
+            </label>
+            <button id="menubtn" class="dropdown-menu-btn">menu</button>
+        </div>
+
+        <div class="header-div">
+            <p>Q-Bussines: Gestión de negocio</p>
+        </div>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <h2>Menú</h2>
+        <ul>
+            <li data-view="inventario"> Inventario</li>
+            <li data-view="ventas"> Ventas</li>
+            <li data-view="clientes"> Clientes</li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main>
+        <h1>Inventario de productos</h1>
+
+        <!-- Formulario crear/editar -->
+        <form id="form-producto" class="card">
+            <input type="hidden" id="id">
+
+            <div class="form-grid">
+                <input type="text"   id="nombre"    placeholder="Nombre del producto" required>
+                <input type="number" id="precio"    placeholder="Precio" required step="0.01" min="0">
+                <input type="number" id="stock"     placeholder="Stock" value="0" min="0">
+                <input type="text"   id="categoria" placeholder="Categoría">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary" id="btn-guardar">Guardar</button>
+                <button type="button" class="btn-secondary" id="btn-cancelar" hidden>Cancelar</button>
+            </div>
+        </form>
+
+        <!-- Tabla de productos -->
+        <div class="card">
+            <table id="tabla-productos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <p id="sin-productos" hidden>No hay productos todavía.</p>
+        </div>
+    </main>
+
+</body>
+</html>

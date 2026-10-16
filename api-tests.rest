@@ -1,0 +1,28 @@
+@baseUrl = http://localhost:5000
+
+### 1. Registrate a new user
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+    "username": "adminsitoss",
+    "password": "1234"
+}
+
+### 2. Login a user
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+    "username": "adminsito",
+    "password": "1234"
+}
+
+### 3. login a user with wrong credentials
+POST {{baseUrl}}/users/login
+Content-type: application/json
+
+{
+    "username": "balbaro",
+    "password": "pingolo"
+}
