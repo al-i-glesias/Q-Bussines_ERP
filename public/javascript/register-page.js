@@ -41,5 +41,7 @@ registration_button.addEventListener('click', async () => {
         const data = await response.json()
         console.log("Registro exitoso")
 
+        window.location.href = "../html/login-page.html"
+
     } catch (err) {console.log (`Error al registrar ususario: ${err.message}`)}
 })

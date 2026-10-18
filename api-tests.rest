@@ -5,7 +5,7 @@ POST {{baseUrl}}/users/register
 Content-Type: application/json
 
 {
-    "username": "adminsitoss",
+    "username": "robi",
     "password": "1234"
 }
 
@@ -14,7 +14,7 @@ POST {{baseUrl}}/users/login
 Content-Type: application/json
 
 {
-    "username": "adminsito",
+    "username": "robi",
     "password": "1234"
 }
 
