@@ -4,6 +4,11 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 
+//active users array from the server
+import { active_sessions } from '../server.js'
+
+dotenv.config( { path: ".env" } )
+
 const router = express.Router()
 
 router.post('/register', (req, res) => {
@@ -45,8 +50,9 @@ router.post('/login', (req, res) => {
 
             if(is_valid_pass) {
                 
-                const token = jwt.sign({id: row.id, username: row.user_name}, process.env.JWT_SECRET, {expiresIn: '1h'} )
-                return res.json( {message: "login succesful", user: row.user_name, token: token })
+                const token = jwt.sign({id: row.user_id, username: row.user_name, role: row.role}, process.env.JWT_SECRET, {expiresIn: '1h'} )
+                active_sessions.push({...row.user_id, token})
+                return res.json( {message: "login succesful", user: row.user_name, id:row.user_id, token: token })
             }
 
             return res.status(403).json( {message: 'invalid credentials'} )

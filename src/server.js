@@ -4,27 +4,35 @@ import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
+//current active users working with the app
+export const active_sessions = []
+
+
 //enviroment
 dotenv.config( { path: ".env" })
 
 
 //routes
-import router from './authRoutes/users.js'
+import users_router from './routes/users.js'
+import products_router from './routes/products.js'
 
-//database
-import db from './db.js'
+//authentication middleware
+import authMiddleware from './authmiddleware/auth_middleware.js'
+
 
 const app = express()
 const PORT = process.env.PORT || 5005
 
+//serve static content
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+app.use(express.static(path.join(__dirname, '..', 'public')))
 
 //midleware
-app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use('/users', router)
+app.use('/users', users_router)
+app.use('/products',authMiddleware , products_router)
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public/html/login-page.html'))

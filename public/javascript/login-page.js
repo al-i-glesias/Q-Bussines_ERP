@@ -31,9 +31,10 @@ login_button.addEventListener("click", async () => {
         }
 
         const data = await response.json()
+
+        localStorage.setItem(`active_user_${data.id}`, data)
         console.log("login exitoso", data)
 
-        window.location.href = "../html/index.html"
     } catch (err) {console.log (`Error al iniciar sesion: ${err.message}`)}
 })
 

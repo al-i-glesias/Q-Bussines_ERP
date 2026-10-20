@@ -1,4 +1,5 @@
 @baseUrl = http://localhost:5000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJyb2JpIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3OTI0NjE5MDAsImV4cCI6MTc5MjQ2NTUwMH0.LbGD4E1CD7BkPvT0u1mWp5Sx0-JGLarXUVtJG6EQFCE
 
 ### 1. Registrate a new user
 POST {{baseUrl}}/users/register
@@ -26,3 +27,21 @@ Content-type: application/json
     "username": "balbaro",
     "password": "pingolo"
 }
+
+### 4. fetch all products from the db
+GET {{baseUrl}}/products
+Authorization: {{token}}
+### 5. add a new product to the database
+POST {{baseUrl}}/products
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "name": "Leche condensada",
+    "price": 870.0,
+    "category": "comida",
+    "description": "no description available",
+    "stock": 48,
+    "date": "2026-10-19"
+}
+
